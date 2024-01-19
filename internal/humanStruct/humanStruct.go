@@ -28,11 +28,11 @@ func NewHumanStruct(ageI int, nameI string) (IHuman, error) {
 }
 
 func (h *human) SetAge(num int) error {
-	if num > 0 && num < 150 {
-		h.age = num
-	} else {
+	if num < 0 || num > 150 {
 		return fmt.Errorf("invalid age")
+
 	}
+	h.age = num
 	return nil
 }
 
